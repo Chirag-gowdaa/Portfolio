@@ -1,18 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { title } from "process";
 export default function Home() {
   const [showall, setshowall] = useState(false)
   const projects = [
+    {
+      title: "DataGone",
+      desc: "Secure data-wiping platform",
+      stack: "C++, Kotlin, Debian, Node.js, JavaScript, Python",
+      img: "/datagone.png",
+      link: "https://frontend-9fkn.vercel.app/"
+    },
     {
       title: "CreatorSpace",
       desc: "Full-stack platform for creators with OAuth & Razorpay.",
       stack: "Next.js, Tailwind, MongoDB, Razorpay",
       img: "/yourspace.png",
-
       link: "https://creator-space-puce.vercel.app/"
     },
     {
@@ -29,7 +36,8 @@ export default function Home() {
       img: "/password.png",
       link: "https://movie-knight-eta.vercel.app/"
     },
-    {  title: "Mood-board Ai",
+    {
+      title: "Mood-board Ai",
       desc: "AI-powered mood board is a mood predictor with different mood options",
       stack: "Ejs, Node.js, OpenAI API",
       img: "/mood.png",
@@ -113,33 +121,50 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="flex gap-6 mt-10"
+          className="flex gap-6 mt-10 justify-center items-center p-1"
         >
-          <a href="mailto: gowdachiru552@gmail.com" className="hover:scale-110 transition" >
+          <a
+            href="mailto:gowdachiru552@gmail.com"
+            className="hover:scale-110 transition-transform"
+          >
             <Mail size={28} />
           </a>
+
           <a
             href="https://github.com/Chirag-gowdaa"
             target="_blank"
-            className="hover:scale-110 transition"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform"
           >
             <Github size={28} />
           </a>
+
           <a
-            href="https://linkedin.com/in/yourlinkedin"
+            href="https://www.linkedin.com/in/chirag-gowda-b10570351?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
             target="_blank"
-            className="hover:scale-110 transition"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform"
           >
             <Linkedin size={28} />
           </a>
+
+          <a
+            href="https://instagram.com/chira.g._"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:scale-110 transition-transform"
+          >
+            <Instagram size={28} />
+          </a>
         </motion.div>
+
 
         {/* Background Glow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.15 }}
           transition={{ duration: 2 }}
-          className="absolute inset-0 bg-[radial-gradient(circle,rgba(56,189,248,0.4)_0%,transparent_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(circle,rgba(56,189,248,0.4)_0%,transparent_70%)] pointer-events-none"
         />
       </section>
 
@@ -220,25 +245,25 @@ export default function Home() {
         <div className="grid gap-10 sm:grid-cols-2">
           {visiableProjects.map((proj, i) => (
 
-            <a href={proj.link} target="_blawnk" className="block">
-            <motion.div
-              key={proj.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-gray-900/60 rounded-2xl p-6 hover:scale-105 transition shadow-xl flex flex-col"
-            >
-              <Image
-                src={proj.img}
-                alt={proj.title}
-                width={500}
-                height={300}
-                className="rounded-lg mb-4 object-cover w-full h-auto"
-              />
-              <h3 className="text-2xl font-semibold mb-2">{proj.title}</h3>
-              <p className="text-gray-400 mb-3">{proj.desc}</p>
-              <p className="text-sm text-teal-400">{proj.stack}</p>
-            </motion.div> </a>
+            <a href={proj.link} target="_blank" className="block">
+              <motion.div
+                key={proj.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-gray-900/60 rounded-2xl p-6 hover:scale-105 transition shadow-xl flex flex-col"
+              >
+                <Image
+                  src={proj.img}
+                  alt={proj.title}
+                  width={500}
+                  height={300}
+                  className="rounded-lg mb-4 object-cover w-full h-auto"
+                />
+                <h3 className="text-2xl font-semibold mb-2">{proj.title}</h3>
+                <p className="text-gray-400 mb-3">{proj.desc}</p>
+                <p className="text-sm text-teal-400">{proj.stack}</p>
+              </motion.div> </a>
           ))}
         </div>
 
@@ -254,6 +279,47 @@ export default function Home() {
           </motion.button>
         </div>
       </section >
+      {/* Resume section */}
+      <section className="flex flex-col items-center justify-center py-10 min-h-screen">
+        <h2 className="text-3xl font-semibold mb-6">My Resume</h2>
+
+        <div
+          style={{
+            width: "420px",
+            height: "700px",
+            padding: "16px",
+            borderRadius: "40px",
+            // background: "linear-gradient(145deg, #f0f0f0, #e0e0e0)",
+            boxShadow: "8px 8px 20px rgba(0,0,0,0.1), -8px -8px 20px rgba(255,255,255,0.7)",
+            border: "2px solid #ddd",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              width: "60px",
+              height: "6px",
+              borderRadius: "3px",
+              backgroundColor: "#ccc",
+              marginBottom: "10px",
+            }}
+          ></div>
+
+          <iframe
+            src="/Portfolio.pdf"
+            width="100%"
+            height="100%"
+            style={{ borderRadius: "24px", border: "1px solid #aaa" }}
+            title="Chirag's Resume"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </section>
+
+
       {/* Contact Section */}
       <section
         id="contact"
@@ -269,7 +335,7 @@ export default function Home() {
           Get In Touch
         </motion.h2>
         <p className="text-gray-300 mb-6">
-          Have a project in mind or want to chat? Feel free to reach out!
+          Have a project in mind or want to chat? Feel free to
         </p>
         <a
           href="mailto:gowdachiru552@gmail.com"
